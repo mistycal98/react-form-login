@@ -1,0 +1,20 @@
+.form {
+	width: 50%;
+	border: 1px solid purple;
+	padding: 1rem;
+	margin: 1rem auto;
+	text-align: center;
+	div {
+		margin: 1rem;
+	}
+	form {
+		margin: 1rem;
+		display: flex;
+		flex-direction: column;
+		button {
+			margin: 1rem;
+			align-self: center;
+			width: 10rem;
+		}
+	}
+}
