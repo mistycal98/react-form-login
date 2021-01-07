@@ -8,7 +8,7 @@ export default function Navigation() {
   return (
     <div className={styles.navigation}>
       <div className={styles.logo}>
-        <img src={logo} alt="" srcset="" />
+        <img src={logo} alt="" />
       </div>
       <nav>
         <ul>
