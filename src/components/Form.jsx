@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { authUrl } from "../api/apiCall";
 import styles from "./Form.module.scss";
-
-import { Cookies } from "js-cookie";
+import Cookies from "js-cookie";
+import logo from "../logo.svg";
 
 export default function Form() {
 	// State Initialize
@@ -47,18 +47,21 @@ export default function Form() {
 	};
 
 	return (
-		<div className={styles.form}>
+		<div className={styles["form-container"]}>
+			<img src={logo} alt="Logo" />
 			<h1>Login</h1>
-			<form onSubmit={handleSubmit}>
-				<div>
-					<label htmlFor="email">Email : </label>
-					<input type="text" name="email" value={email} onChange={handleEmail} />
-				</div>
-				<div>
-					<label htmlFor="password">Password : </label>
-					<input type="password" name="password" value={password} onChange={handlePassword} />
-				</div>
-				<button>Login</button>
+			<form onSubmit={handleSubmit} action="">
+				<label htmlFor="email">Email</label>
+				<input id="email" type="email" name="email" value={email} onChange={handleEmail} />
+				<label htmlFor="password">Password</label>
+				<input
+					id="password"
+					type="password"
+					name="password"
+					value={password}
+					onChange={handlePassword}
+				/>
+				<input type="submit" className={styles.login} />
 			</form>
 		</div>
 	);
