@@ -1,9 +1,9 @@
 import React from "react";
-
+import Todo from "../components/Todo";
 export default function Dashboard() {
   return (
-    <div>
-      <h1>Dashboard</h1>
+    <div className="body">
+      <Todo />
     </div>
   );
 }
