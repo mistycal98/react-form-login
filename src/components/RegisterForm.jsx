@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import styles from "../components/Form.module.scss";
+import styles from "./styles/Form.module.scss";
 import logo from "../logo.svg";
 // import { authUrl } from "../api/apiCall";
 // import { useHistory } from "react-router-dom";

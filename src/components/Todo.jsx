@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { todoUrl } from "../api/apiCall";
-import styles from "./Todo.module.scss";
+import styles from "./styles/Todo.module.scss";
 
 export default function Todo() {
 	const [tasks, setTasks] = useState([]);
@@ -9,7 +9,7 @@ export default function Todo() {
 	useEffect(() => {
 		fetchItems();
 		// eslint-disable-next-line
-	}, []); 
+	}, []);
 
 	const fetchItems = async () => {
 		let data = await fetch(`${todoUrl}/todos/`);

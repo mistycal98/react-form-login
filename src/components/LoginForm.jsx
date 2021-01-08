@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { authUrl } from "../api/apiCall";
-import styles from "./Form.module.scss";
+import styles from "./styles/Form.module.scss";
 import Cookies from "js-cookie";
 import logo from "../logo.svg";
 import { useHistory } from "react-router-dom";

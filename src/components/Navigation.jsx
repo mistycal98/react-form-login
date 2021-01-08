@@ -2,7 +2,7 @@ import React from "react";
 import logo from "../logo.svg";
 
 import { Link } from "react-router-dom";
-import styles from "./Navigation.module.scss";
+import styles from "./styles/Navigation.module.scss";
 
 export default function Navigation() {
 	return (
