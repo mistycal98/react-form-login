@@ -14,5 +14,5 @@ a {
 }
 
 .body {
-	height: calc(100vh - 20vh);
+	min-height: calc(100vh - 20vh);
 }
