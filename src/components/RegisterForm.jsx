@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import styles from "./styles/Form.module.scss";
 import logo from "../logo.svg";
-// import { authUrl } from "../api/apiCall";
-// import { useHistory } from "react-router-dom";
+import { authUrl } from "../api/apiCall";
+import { useHistory } from "react-router-dom";
 
 const RegisterForm = () => {
 	const [email, setEmail] = useState("");
@@ -10,35 +10,36 @@ const RegisterForm = () => {
 	const [confirmPassword, setConfirmPassword] = useState("");
 	// eslint-disable-next-line
 	const [isregistered, setReg] = useState(false);
-	// const history = useHistory();
+	const history = useHistory();
 
 	const handleSubmit = async (event) => {
-		event.preventDefaults();
+		event.preventDefault();
 
-		// try {
-		// 	let data = await fetch(`${authUrl}/users/signup`, {
-		// 		method: "POST",
-		// 		headers: {
-		// 			"Content-type": "application/json",
-		// 		},
-		// 		body: JSON.stringify({
-		// 			email,
-		// 			password,
-		// 			confirmPassword,
-		// 		}),
-		// 		redirect: "follow",
-		// 	});
-		// 	let result = await data.json();
-		// 	console.log(result);
-		// 	if (result === "User Created") {
-		// 		setReg(true);
-		// 		history.push("/login");
-		// 	} else {
-		// 		setReg(false);
-		// 	}
-		// } catch (error) {
-		// 	console.log(error);
-		// }
+		try {
+			let data = await fetch(`${authUrl}/users/signup`, {
+				method: "POST",
+				headers: {
+					"Content-type": "application/json",
+				},
+				body: JSON.stringify({
+					email,
+					password,
+					confirmPassword,
+				}),
+				redirect: "follow",
+			});
+			let result = await data.json();
+			console.log(result);
+			if (result.status === "Sucessfull") {
+				setReg(true);
+				alert("Registered");
+				history.push("/login");
+			} else {
+				setReg(false);
+			}
+		} catch (error) {
+			console.warn(error);
+		}
 	};
 	const handleEmail = (event) => {
 		setEmail(event.target.value);

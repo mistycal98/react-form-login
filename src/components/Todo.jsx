@@ -2,6 +2,10 @@ import React, { useEffect, useState } from "react";
 import { todoUrl } from "../api/apiCall";
 import styles from "./styles/Todo.module.scss";
 
+//font awesome
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTrash } from "@fortawesome/free-solid-svg-icons";
+
 export default function Todo() {
 	const [tasks, setTasks] = useState([]);
 	const [task, setTask] = useState("");
@@ -9,7 +13,7 @@ export default function Todo() {
 	useEffect(() => {
 		fetchItems();
 		// eslint-disable-next-line
-	}, []);
+	}, [task]);
 
 	const fetchItems = async () => {
 		let data = await fetch(`${todoUrl}/todos/`);
@@ -33,12 +37,28 @@ export default function Todo() {
 		});
 		let result = await data.json();
 		console.log(result);
+		fetchItems();
 	};
 
 	const handleTaskField = (event) => {
 		setTask(event.target.value);
 	};
-
+	const taskDelete = async (id) => {
+		// event.preventDefault();
+		try {
+			let data = await fetch(`${todoUrl}/todos/${id}`, {
+				method: "DELETE",
+				headers: {
+					"Content-type": "application/json",
+				},
+				redirect: "follow",
+			});
+			let result = await data.json();
+			console.log(result);
+		} catch (err) {
+			console.log(err);
+		}
+	};
 	return (
 		<div className={styles.todos}>
 			<h1>Tasks</h1>
@@ -48,7 +68,16 @@ export default function Todo() {
 				<input type="submit" value="Submit" />
 			</form>
 			{tasks.map((task) => (
-				<p key={task.taskid}>{task.task}</p>
+				<div key={task.taskid} className={styles.task}>
+					<p>{task.task}</p>
+					<FontAwesomeIcon
+						icon={faTrash}
+						size={"xs"}
+						onClick={() => {
+							taskDelete(task.taskid);
+						}}
+					/>
+				</div>
 			))}
 		</div>
 	);

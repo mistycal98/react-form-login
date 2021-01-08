@@ -61,6 +61,7 @@ function Form() {
 		<div className={styles["form-container"]}>
 			<img src={logo} alt="Logo" />
 			<h1>Login</h1>
+			{setLog === false ? <h1>Please Login</h1> : <p></p>}
 			<form onSubmit={handleSubmit} action="">
 				<label htmlFor="email">Email</label>
 				<input id="email" type="email" name="email" value={email} onChange={handleEmail} />
