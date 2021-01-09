@@ -1,4 +1,14 @@
 .footer {
-    height: 10vh;
-    background-color: aquamarine;
+  height: 10vh;
+  background-color: black;
+  display: flex;
+  justify-content: space-around;
+  * {
+    margin: 0.1rem;
+    padding: 0 1rem;
+    color: white;
+  }
+  .icon {
+    margin: 0.2rem;
+  }
 }
