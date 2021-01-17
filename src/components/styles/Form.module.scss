@@ -1,35 +1,38 @@
 .form-container {
-  max-width: 30%;
-  border-radius: 2px;
-  padding: 1rem;
-  margin: 1rem auto;
-  text-align: justify;
-  box-shadow: 0px 1px 2px 0px grey;
-  overflow: hidden;
-  h1 {
-    text-align: center;
-  }
-  img {
-    display: block;
-    width: 10rem;
-    height: auto;
-    margin: auto;
-  }
-  form {
-    padding: 1rem;
-    input,
-    label {
-      display: block;
-      margin: 1rem auto;
-      padding: 0.4rem;
-      width: 100%;
-    }
-    .login {
-      background-color: #000;
-      color: white;
-      border: 0;
-      padding: 0.4rem 1rem;
-      width: auto;
-    }
-  }
+	max-width: 30%;
+	border-radius: 2px;
+	padding: 1rem;
+	margin: 1rem auto;
+	text-align: justify;
+	box-shadow: 0px 1px 2px 0px grey;
+	overflow: hidden;
+	h1 {
+		text-align: center;
+	}
+	img {
+		display: block;
+		width: 10rem;
+		height: auto;
+		margin: auto;
+	}
+	form {
+		padding: 1rem;
+		input,
+		label {
+			display: block;
+			margin: 1rem auto;
+			padding: 0.4rem;
+			width: 100%;
+		}
+		.login {
+			background-color: #000;
+			color: white;
+			border: 0;
+			padding: 0.4rem 1rem;
+			width: auto;
+			:hover {
+				cursor: pointer;
+			}
+		}
+	}
 }
